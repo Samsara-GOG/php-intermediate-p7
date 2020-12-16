@@ -50,9 +50,19 @@ if ($_POST) {
     }
     // dump($tryPassword);
 
+    $maxLength = 190;
+
     if (empty($_POST['login'])) {
-        // le champs est-il vide ?
-        $errors['login'] = "Veuillez entrer un login.";
+        // le champ de l'email est-il vide ?
+        $errors['login'] = "Veuillez entrer un login email";
+        $tryPassword -= 1;
+    } elseif (filter_var($_POST['login'], FILTER_VALIDATE_EMAIL) == FALSE) {
+        // l'email n'est pas correcte ?
+        $errors['login'] = "Merci de renseigner un email valide";
+        $tryPassword -= 1;
+    } elseif (strlen($_POST['login']) > $maxLength) {
+        // la longueur de l'email est-elle hors des limites ?
+        $errors['login'] = "Merci de rédiger une adresse mail dont la longueur maximale ne dépasse pas {$maxLength} caractères";
         $tryPassword -= 1;
     }
 
@@ -72,7 +82,6 @@ if ($_POST) {
         $_SESSION['password'] = $config['smtp']['password'];
         // connecté avec succès, renvoi vers la page privée
         echo "<p>Vous vous êtes connecté avec succès, vous allez donc être redirigé vers la page privée dans 5sec.</p>";
-        sleep(5);
         $url = 'private.php';
         header("Location: {$url}", true, 301);
         exit();
@@ -83,14 +92,12 @@ if ($_POST) {
         // l'utilisateur ne peut pas accéder à la page
         // renvoi vers home page
         echo "<p>Vous avez dépassé le nombre autorisé d'essais pour login et mot de passe, vous allez donc être redirigé vers la page d'accueil dans 5sec.</p>";
-        sleep(5);
         $url = 'index.php';
         header("Location: {$url}", true, 301);
         $tryPassword -= 1;
         exit();
     }   
 }
-
 
 // Affichage du rendu du template
 echo $twig->render('login.html.twig', [
