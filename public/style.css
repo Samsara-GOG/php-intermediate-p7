@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 13px;
+
+}
+
+form {
+    margin-top: 25px;
+}
+
+.log {
+    width: 200px!important;
+}
+
+.error {
+    display: block;
+}
+
+.login {
+    margin: 5px 0 0 20px;
+}
+
+.password {
+    margin: 4px 0 0 5px;
+}
+
+.bold {
+    font-weight: bold;
+    padding-right: 25px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-left: 259px;
+}
+
+.pass2 {
+    position: relative;
+    right: 1px;
+    width: 148px!important;
+}
+
+.form-control, .input-group > .custom-select:not(:last-child), .input-group > .form-control:not(:last-child), .input-group > .custom-select:not(:last-child), .input-group > .form-control:not(:last-child) {
+    border-top-right-radius: 0.25rem!important;
+    border-bottom-right-radius: 0.25rem!important;
+}
+
+.input-group {
+    width: 45%;
+}
+
+.lock {
+    width: 43px;
+}
+
+.main {
+    border-radius: 3px;
+    border: 2px solid black;
+    position: absolute;
+    margin-left: 400px;
+    max-width: 500px;
+}
+
