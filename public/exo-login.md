@@ -6,6 +6,5 @@
     3.5) sinon un message générique est affiché :
         "Mot de passe ou login invalide"
 
-
-// https://www.php.net/manual/fr/function.password-verify.php
-// https://www.php.net/manual/fr/function.password-hash.php
+    https://www.php.net/manual/fr/function.password-verify.php
+    https://www.php.net/manual/fr/function.password-hash.php
