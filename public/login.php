@@ -59,12 +59,6 @@ if ($_POST) {
     // dump($errors);  
     // dump($formData);  
 
-    // $password = '123';
-    // $password = 'swduffynrihygwtj';
-
-    // $hash = '$2y$10$gPqGX1VBehD4ybRiFITjsuVg8DSRwroQY7avQz/ZSYjLWsIAOTLzO';
-                // $_POST['password']
-
     if (empty($_POST['password'])) {
         $errors['password'] = 'Veuillez entrer un mot de passe.';
         $tryPassword -= 1;
@@ -76,9 +70,9 @@ if ($_POST) {
     if (!$errors) {
         $_SESSION['login'] = $config['smtp']['login'];
         $_SESSION['password'] = $config['smtp']['password'];
-        // loggé avec succé, renvoie vers page privée
+        // connecté avec succès, renvoi vers la page privée
         echo "<p>Vous vous êtes connecté avec succès, vous allez donc être redirigé vers la page privée dans 5sec.</p>";
-        sleep(3);
+        sleep(5);
         $url = 'private.php';
         header("Location: {$url}", true, 301);
         exit();
@@ -89,7 +83,7 @@ if ($_POST) {
         // l'utilisateur ne peut pas accéder à la page
         // renvoi vers home page
         echo "<p>Vous avez dépassé le nombre autorisé d'essais pour login et mot de passe, vous allez donc être redirigé vers la page d'accueil dans 5sec.</p>";
-        sleep(3);
+        sleep(5);
         $url = 'index.php';
         header("Location: {$url}", true, 301);
         $tryPassword -= 1;
