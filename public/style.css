@@ -5,7 +5,10 @@
 body {
     margin: 0;
     font-size: 13px;
+}
 
+input {
+    margin-left: 100px;
 }
 
 form {
@@ -58,10 +61,14 @@ form {
 }
 
 .main {
-    border-radius: 3px;
-    border: 2px solid black;
+    border-radius: 5px;
+    border: 1px solid black;
     position: absolute;
     margin-left: 400px;
     max-width: 500px;
+}
+
+.center {
+    margin: 0 50%;
 }
 

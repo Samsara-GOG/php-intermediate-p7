@@ -13,23 +13,25 @@
     <form class="container g-3" method="post" novalidate>
         <div class="row mb-3">
             <div class="input-group">
-                <label for="validatedInputGroupPrepend1" class="form-label login"><strong class="bold">Login (email) : </strong></label>
-                <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
+                <label for="validationCustomUsername" class="form-label login"><strong class="bold">Login (email) : </strong></label>
+                <div class="input-group has-validation">
+                <span class="input-group-text"  id="inputGroupPrepend">@</span>
+                
+                <input type="text" name="login" class="form-control log" id="validationCustomUsername" aria-describedby="inputGroupPrepend" value="{{ formData.login }}" required>
                 </div>
-                <input type="text" name="login" class="form-control log" id="validatedInputGroupPrepend1" aria-describedby="validatedInputGroupPrepend1" value=" {{ formData.login }}" required>
 
                 {% if errors.login is defined %}
                     <div class="error">
                         {{ errors.login }}
                     </div>
-                {% else %}
-                    {# <div class="error">
+                {# {% else %}
+                    <div class="error">
                         login et mot de passe corrects
                     </div> #}
                 {% endif %}
             </div>
         </div>
+
         <div class="row mb-3">
             <div class="input-group">
                 <label for="validatedInputGroupPrepend2" class="form-label password"><strong class="bold">Mot de passe : </strong></label>
@@ -42,13 +44,13 @@
                     <div class="error">
                         {{ errors.password }}
                     </div>
-                {% else %}
-                    {# <div class="error">
+                {# {% else %}
+                    <div class="error">
                         login et mot de passe corrects
                     </div> #}
                 {% endif %}
-            </div>
-            <input class="btn btn-primary" value="Se logger" type="submit">       
+            <input class="btn btn-primary" value="Se logger" type="submit">     
+            </div>  
         </div>
     </form>
     </div>
